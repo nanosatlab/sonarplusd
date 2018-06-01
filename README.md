@@ -1,13 +1,13 @@
 <p align="center">
-[<img src="res/logo_ieec_color.png" height="50" />](http://www.ieec.cat/)
+<img src="res/logo_ieec_color.png" height="50" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-[<img src="res/logo_sonar+d_color.png" height="50" />](https://sonarplusd.com/en/programs/barcelona-2018/areas/workshops/how-to-build-a-nanosat)
+<img src="res/logo_sonar+d_color.png" height="50" />
 </p>
 
 
 # Build a CubeSat model
 ### About
-This repository includes all the necessary material to reproduce the CubeSat prototype prepared during IEEC's workshop "_How to build a nanosat_". The workshop was carried out at the 2018 edition of **Sonar+D**, in Barcelona (Spain), and proposed the attendees to build a nano-satellite model based on Commercial Off-The-Shelf (COTS) components and readily available hardware and software tools. The model has was also presented at Barcelona's Maker Faire 2018. This page and repository gathers public documentation and references, custom software and the bill of materials.
+This repository includes all the necessary material to reproduce the CubeSat prototype prepared during [IEEC](http://www.ieec.cat/)'s workshop ["_How to build a nanosat_"](https://sonarplusd.com/en/programs/barcelona-2018/areas/workshops/how-to-build-a-nanosat). The workshop was carried out at the 2018 edition of **Sonar+D**, in Barcelona (Spain), and proposed the attendees to build a nano-satellite model based on Commercial Off-The-Shelf (COTS) components and readily available hardware and software tools. The model has was also presented at Barcelona's Maker Faire 2018. This page and repository gathers public documentation and references, custom software and the bill of materials.
 
 ## Bill Of Materials (BOM)
 TODO
@@ -58,7 +58,7 @@ TODO
 https://www.linux-projects.org/uv4l/installation/
 
 ### 6. Update Node.js (optional)
-TODO 
+TODO
 
 ### 6. Once everything is installed
 Workshop activities:
@@ -84,3 +84,4 @@ _Institut d'Estudis Espacials de Catalunya (IEEC), 2018 / [www.ieec.cat](http://
 <p align="center">
 [<img src="res/logo_nanosatlab_black.png" height="35" />](http://nanosatlab.upc.edu/en)
 </p>
+TODO: add logos of UAB, UB, CSIC.
