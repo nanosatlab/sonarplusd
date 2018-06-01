@@ -34,3 +34,4 @@
 # Development folders and files
 examples/*
 lib/*
+node_modules/
