@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>IEEC | Sonar+D ||| CubeSat Operations and Control Room</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles/fonts.css">
+    <link rel="stylesheet" type="text/css" href="styles/sonard_cubesat.css">
+    <script src="scripts/fontawesome-all.js" defer></script>
+    <script src="scripts/socket.io.js"></script>
+    <script src="scripts/signalling.js"></script>
+    <script src="scripts/client.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="canvas-container">
+                <h1 id="header">CubeSat Operation Centre / <img src="img/logo_ieec_color.png" height="27" style="margin-bottom: -3px;"></h1>
+                <div class="content">
+                    <button id="start" class="btn">
+                        <i id="start-icon-spinner" class="fa fa-spinner fa-pulse"></i>
+                        <i id="start-icon-check"   class="fa fa-check"></i>
+                        <span id="start-btn-message">Connect to payload</span>
+                    </button>
+                    <button class="btn" id="capture"><i class="fa fa-camera"></i>&nbsp;&nbsp;Download capture</button>
+                    <button class="btn btn-right"><i class="fab fa-github"></i>&nbsp;&nbsp;Build your own</button>
+                    <select class="btn" id="led-opt">
+                        <option value="ledopt1" selected>LED Off</option>
+                        <option value="ledopt1">LED Sónar calling</option>
+                        <option value="ledopt1">LED Color</option>
+                        <option value="ledopt1">LED Text</option>
+                    </select>
+                    <input class="btn" type="text" name="led-text" id="led-text">
+                    <input class="btn" type="color" name="led-color" id="led-color">
+                </div>
+                <div style="clear: both;">
+                <div class="content" style="position: absolute; top: 115px; right: 15px;" id="info-box">
+                    <div class="data-item-box" id="info-msg">
+                        <i class="fa fa-spinner fa-pulse"></i>&nbsp;&nbsp;Establishing telemetry link...
+                    </div>
+                </div>
+                <div class="content" style="position: absolute; top: 115px; right: 15px;" id="sensors-box">
+                    <div class="data-item-box">
+                        Attitude:<br>
+                        <div class="data-item">
+                            <div class="data-item-label">roll</div>
+                            <div class="data-item-number" id="gyro-roll">-180.50</div>
+                            <div class="data-item-unit">deg.</div>
+                            <br>
+
+                            <div class="data-item-label"></div>
+                            <div class="data-item-number" id="acc-roll">-180.50</div>
+                            <div class="data-item-unit">deg./s²</div>
+                            <br>
+
+                            <div class="data-item-label"></div>
+                            <div class="data-item-number" id="acc-rollg">-180.50</div>
+                            <div class="data-item-unit">g</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">pitch</div>
+                            <div class="data-item-number" id="gyro-pitch">23.5</div>
+                            <div class="data-item-unit">deg.</div>
+                            <br>
+
+                            <div class="data-item-label"></div>
+                            <div class="data-item-number" id="acc-pitch">23.5</div>
+                            <div class="data-item-unit">deg./s²</div>
+                            <br>
+
+                            <div class="data-item-label"></div>
+                            <div class="data-item-number" id="acc-pitchg">23.5</div>
+                            <div class="data-item-unit">g</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">yaw</div>
+                            <div class="data-item-number" id="gyro-yaw">1.8</div>
+                            <div class="data-item-unit">deg.</div>
+                            <br>
+
+                            <div class="data-item-label"></div>
+                            <div class="data-item-number" id="acc-yaw">1.8</div>
+                            <div class="data-item-unit">deg./s²</div>
+                            <br>
+
+                            <div class="data-item-label"></div>
+                            <div class="data-item-number" id="acc-yawg">1.8</div>
+                            <div class="data-item-unit">g</div>
+                        </div>
+                    </div>
+                    <div class="data-item-box">
+                        Magnetic field:<br>
+                        <div class="data-item">
+                            <div class="data-item-label">dir.</div>
+                            <div class="data-item-number" id="mag-dir">-180.50</div>
+                            <div class="data-item-unit">deg. (N)</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">x</div>
+                            <div class="data-item-number" id="mag-x">40.56</div>
+                            <div class="data-item-unit">µT</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">y</div>
+                            <div class="data-item-number" id="mag-y">23.5</div>
+                            <div class="data-item-unit">µT</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">z</div>
+                            <div class="data-item-number" id="mag-z">1.8</div>
+                            <div class="data-item-unit">µT</div>
+                        </div>
+                    </div>
+                    <div class="data-item-box">
+                        Barometric altitude:<br>
+                        <div class="data-item">
+                            <div class="data-item-label">P</div>
+                            <div class="data-item-number" id="pressure">1060.50</div>
+                            <div class="data-item-unit">mbar</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">Alt.</div>
+                            <div class="data-item-number" id="altitude">100.5</div>
+                            <div class="data-item-unit">m</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">Δ(alt.)</div>
+                            <div class="data-item-number" id="altitude-delta">100.5</div>
+                            <div class="data-item-unit">m</div>
+                        </div>
+                    </div>
+                    <div class="data-item-box">
+                        Humidity:<br>
+                        <div class="data-item">
+                            <div class="data-item-label">Rel.</div>
+                            <div class="data-item-number" id="humidity">50</div>
+                            <div class="data-item-unit">%</div>
+                        </div>
+                    </div>
+                    <div class="data-item-box">
+                        Temperature:<br>
+                        <div class="data-item">
+                            <div class="data-item-label">CPU</div>
+                            <div class="data-item-number" id="temp-cpu">360.50</div>
+                            <div class="data-item-unit">ºC</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">T1</div>
+                            <div class="data-item-number" id="temp1">23.5</div>
+                            <div class="data-item-unit">ºC</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">T2</div>
+                            <div class="data-item-number" id="temp2">1.8</div>
+                            <div class="data-item-unit">ºC</div>
+                        </div>
+                    </div>
+                </div>
+                <video id="payload-video"></video>
+                <canvas id="payload-video-canvas" width="960" height="720"></canvas>
+                <div class="credits">
+                    <img src="img/logo_sonar.png" height="30">
+                    <img src="img/logo_ieec_white.png" height="30">
+                    <div class="credits-text">
+                        Institut d'Estudis Espacials de Catalunya (IEEC) / <a href="http://www.ieec.cat" target="blank">www.ieec.cat</a><br>
+                        Video streaming server, interface and scripts credit to Linux Projects / <a href="https://www.linux-projects.org/uv4l/">www.linux-projects.org/uv4l/</a>.
+                        Based on Video For Linux API.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!--
+Websocket closed.
+Color green.
+Disconnect.
+Image before video.
+Loading video image (fa animation).
+Data from sensors.
+ -->
