@@ -1,4 +1,4 @@
-RTCPeerConnection = window.webkitRTCPeerConnection;
+RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection;
 RTCSessionDescription = window.RTCSessionDescription;
 RTCIceCandidate = window.RTCIceCandidate;
 var ws;
@@ -39,7 +39,7 @@ function signal(url, onStream, onError, onClose, onMessage) {
                 }
             };
 
-            if('ontrack' in pc) {
+            if("ontrack" in pc) {
                 pc.ontrack = function(event) {
                     onStream(event.streams[0]);
                 };
@@ -100,7 +100,7 @@ function signal(url, onStream, onError, onClose, onMessage) {
                                 }, mediaConstraints);
                             },
                             function onRemoteSdpError(event) {
-                                onError('Failed to set the remote description: ' + event);
+                                onError("Failed to set the remote description: " + event);
                                 ws.close();
                             }
                     );
@@ -139,7 +139,7 @@ function signal(url, onStream, onError, onClose, onMessage) {
         };
 
         ws.onclose = function (event) {
-            console.log('Socket closed with code: ' + event.code);
+            console.log("Socket closed with code: " + event.code);
             if (pc) {
                 pc.close();
                 pc = null;

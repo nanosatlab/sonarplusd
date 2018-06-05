@@ -60,7 +60,10 @@ https://www.linux-projects.org/uv4l/installation/
 ### 6. Update Node.js (optional)
 TODO
 
-### 6. Once everything is installed
+### 7. Install Node.js dependencies
+TODO
+
+### 8. Once everything is installed
 Workshop activities:
 
 1. Mount components, structure, mechanical integration.
