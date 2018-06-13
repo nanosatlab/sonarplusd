@@ -3,6 +3,7 @@ var http = require("http").createServer(httpHandler);   // Require HTTP server, 
 var fs = require("fs");                             // Require filesystem module
 var io = require("socket.io")(http)                 // Require socket.io module and pass the http object (server)
 const { spawn } = require("child_process");         // Require child_process module to spawn other processes.
+const { exec }  = require("child_process");         // Require child_process module to spawn other processes.
 
 /* Global constant values: */
 var root_path = "/home/pi/sonarplusd/server/";      // Server root path.
@@ -65,6 +66,8 @@ function httpHandler(request, response)
 /* Start WebSocket sockets: */
 var iosocket;
 var iosocket_connected = false;
+var allow_spawn = true;
+
 io.sockets.on("connection", function(s) {
     iosocket = s;
     iosocket_connected = true;
@@ -83,39 +86,86 @@ io.sockets.on("connection", function(s) {
             switch(data_obj.type) {
                 case "data":
                     console.log("WebSocket data request.");
-
                     /* Initialize reply data structure: */
                     var reply = {
                         "value": "err",
                         "err": -1
                     };
                     var reply_data = "";
-                    const child = spawn("../app/sensehat_if.py");
-                    child.on("exit", function(code, signal) {
-                        console.log("SenseHat Interface child process exited with code: ", code);
-                        reply["err"] = code;
-                        if(code != 0 || !reply_data) {
-                            reply["value"] = "err";
-                        } else {
-                            reply["sense_hat"] = JSON.parse(reply_data);
-                        }
+                    if(allow_spawn) {
+                        allow_spawn = false;
+                        var child = spawn("../app/sensehat_if.py");
+                        child.on("exit", function(code, signal) {
+                            console.log("SenseHat Interface child process exited with code: ", code);
+                            reply["err"] = code;
+                            if(code != 0 || !reply_data) {
+                                reply["value"] = "err";
+                            } else {
+                                reply["sense_hat"] = JSON.parse(reply_data);
+                            }
+                            iosocket.emit("res", reply);
+                            allow_spawn = true;
+                        });
+                        child.stdout.on("data", (msg) => {
+                            reply["value"] = "data";
+                            reply_data += msg;
+                        });
+                    } else {
+                        console.log("Data request will cannot be served because the previous one has not finished.");
                         iosocket.emit("res", reply);
-                    });
-                    child.stdout.on("data", (msg) => {
-                        reply["value"] = "data";
-                        reply_data += msg;
-                    });
+                    }
                     break;
                 case "action":
-                    console.log("WebSocket action request.");
-                    var res = {
-                        value: "ok"
+                    let led_options;
+                    let res = { };
+                    if("off" in data_obj.opt) {
+                        console.log("WebSocket action request: off");
+                        led_options = ["-o"];
+                        res["value"] = "ok";
+                    } else if("sc" in data_obj.opt) {
+                        console.log("WebSocket action request: Sónar calling effect");
+                        led_options = ["-s"];
+                        res["value"] = "ok";
+                    } else if("color" in data_obj.opt) {
+                        console.log("WebSocket action request: solid color. Options: ", data_obj.opt);
+                        led_options = ["-c", data_obj.opt["color"]];
+                        res["value"] = "ok";
+                    } else if("text" in data_obj.opt) {
+                        console.log("WebSocket action request: scrolling text. Options: ", data_obj.opt);
+                        led_options = ["-t", data_obj.opt["text"]];
+                        res["value"] = "ok";
+                    } else if("image" in data_obj.opt) {
+                        console.log("WebSocket action request: image");
+                        led_options = ["-i"];
+                        res["value"] = "ok";
+                    } else if("pattern" in data_obj.opt) {
+                        console.log("WebSocket action request: pattern");
+                        led_options = ["-p"];
+                        res["value"] = "ok";
+                    } else if("countdown" in data_obj.opt) {
+                        console.log("WebSocket action request: countdown from ", data_obj.opt["countdown"]);
+                        led_options = ["-d", data_obj.opt["countdown"]];
+                        res["value"] = "ok";
+                    } else {
+                        console.log("WebSocket action request failed: unknown option", data_obj.opt);
+                        res["value"] = "err";
                     }
+                    var p1 = spawn("pkill", ["-f", "sensehat_led_control.py"]);
+                    p1.stdout.on("data", (msg) => {
+                        console.log(msg);
+                    });
+                    p1.on("exit", function(code, signal) {
+                        var p2 = spawn("../app/sensehat_led_control.py", led_options);
+                        p2.stdout.on("data", (msg) => {
+                            console.log(msg);
+                        });
+                    });
                     iosocket.emit("res", JSON.stringify(res));
                     break;
                 default:
                     console.log("WebSocket unknown request type: ", data_obj);
-                    iosocket.emit("res", "hello error!");
+                    res["value"] = "err";
+                    iosocket.emit("res", JSON.stringify(res));
                     break;
             }
         } else {

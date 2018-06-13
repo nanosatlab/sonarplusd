@@ -1,0 +1,17 @@
+[Unit]
+Description=CubeSat Telemetry service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node server.js
+ExecStop=/usr/bin/pkill node
+Type=simple
+Restart=on-failure
+RestartSec=2
+WorkingDirectory=/home/pi/sonarplusd/server
+StandardOutput=journal
+StandardError=journal
+User=pi
+
+[Install]
+WantedBy=multi-user.target

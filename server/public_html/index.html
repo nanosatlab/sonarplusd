@@ -23,69 +23,81 @@
                         <span id="start-btn-message">Connect to payload</span>
                     </button>
                     <button class="btn" id="capture"><i class="fa fa-camera"></i>&nbsp;&nbsp;Download capture</button>
-                    <button class="btn btn-right"><i class="fab fa-github"></i>&nbsp;&nbsp;Build your own</button>
+                    <a href="https://github.com/nanosatlab/sonarplusd" target="_blank">
+                        <button class="btn btn-right"><i class="fab fa-github"></i>&nbsp;&nbsp;Build your own</button>
+                    </a>
                     <select class="btn" id="led-opt">
-                        <option value="ledopt1" selected>LED Off</option>
-                        <option value="ledopt1">LED Sónar calling</option>
-                        <option value="ledopt1">LED Color</option>
-                        <option value="ledopt1">LED Text</option>
+                        <option value="ledopt-off" selected>LED Off</option>
+                        <option value="ledopt-calling">LED Sónar calling</option>
+                        <option value="ledopt-color">LED Color</option>
+                        <option value="ledopt-text">LED Text</option>
+                        <option value="ledopt-image">LED Image</option>
+                        <option value="ledopt-pattern">LED Pattern</option>
+                        <option value="ledopt-countdown">LED Countdown</option>
                     </select>
-                    <input class="btn" type="text" name="led-text" id="led-text">
+                    <input class="btn" type="text" name="led-text" id="led-text" value="IEEC-Sonar+D">
                     <input class="btn" type="color" name="led-color" id="led-color">
                 </div>
-                <div style="clear: both;">
-                <div class="content" style="position: absolute; top: 115px; right: 15px;" id="info-box">
+                <div style="clear: both;"></div>
+                <div class="content">
+                    <button id="fn-1" class="btn">Fn1</button>
+                    <button id="fn-2" class="btn">Fn2</button>
+                    <button id="fn-3" class="btn">Fn3</button>
+                    <button id="fn-4" class="btn">Fn4</button>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="content" style="position: absolute; top: 155px; right: 15px;" id="info-box">
                     <div class="data-item-box" id="info-msg">
                         <i class="fa fa-spinner fa-pulse"></i>&nbsp;&nbsp;Establishing telemetry link...
                     </div>
                 </div>
-                <div class="content" style="position: absolute; top: 115px; right: 15px;" id="sensors-box">
+                <div class="content" style="position: absolute; top: 155px; right: 15px;" id="sensors-box">
                     <div class="data-item-box">
                         Attitude:<br>
                         <div class="data-item">
                             <div class="data-item-label">roll</div>
-                            <div class="data-item-number" id="gyro-roll">-180.50</div>
+                            <div class="data-item-number" id="roll">-180.50</div>
                             <div class="data-item-unit">deg.</div>
-                            <br>
-
-                            <div class="data-item-label"></div>
-                            <div class="data-item-number" id="acc-roll">-180.50</div>
-                            <div class="data-item-unit">deg./s²</div>
-                            <br>
-
-                            <div class="data-item-label"></div>
-                            <div class="data-item-number" id="acc-rollg">-180.50</div>
-                            <div class="data-item-unit">g</div>
                         </div>
                         <div class="data-item">
                             <div class="data-item-label">pitch</div>
-                            <div class="data-item-number" id="gyro-pitch">23.5</div>
+                            <div class="data-item-number" id="pitch">23.5</div>
                             <div class="data-item-unit">deg.</div>
-                            <br>
-
-                            <div class="data-item-label"></div>
-                            <div class="data-item-number" id="acc-pitch">23.5</div>
-                            <div class="data-item-unit">deg./s²</div>
-                            <br>
-
-                            <div class="data-item-label"></div>
-                            <div class="data-item-number" id="acc-pitchg">23.5</div>
-                            <div class="data-item-unit">g</div>
                         </div>
                         <div class="data-item">
                             <div class="data-item-label">yaw</div>
-                            <div class="data-item-number" id="gyro-yaw">1.8</div>
+                            <div class="data-item-number" id="yaw">1.8</div>
                             <div class="data-item-unit">deg.</div>
-                            <br>
-
-                            <div class="data-item-label"></div>
-                            <div class="data-item-number" id="acc-yaw">1.8</div>
-                            <div class="data-item-unit">deg./s²</div>
-                            <br>
-
-                            <div class="data-item-label"></div>
-                            <div class="data-item-number" id="acc-yawg">1.8</div>
-                            <div class="data-item-unit">g</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">v(x)</div>
+                            <div class="data-item-number" id="vel-x">-180.50</div>
+                            <div class="data-item-unit">deg./s</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">v(y)</div>
+                            <div class="data-item-number" id="vel-y">23.5</div>
+                            <div class="data-item-unit">deg./s</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">v(z)</div>
+                            <div class="data-item-number" id="vel-z">1.8</div>
+                            <div class="data-item-unit">deg./s</div><br>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">a(x)</div>
+                            <div class="data-item-number" id="acc-x">-180.50</div>
+                            <div class="data-item-unit">m/s²</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">a(y)</div>
+                            <div class="data-item-number" id="acc-y">23.5</div>
+                            <div class="data-item-unit">m/s²</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-item-label">a(z)</div>
+                            <div class="data-item-number" id="acc-z">1.8</div>
+                            <div class="data-item-unit">m/s²</div>
                         </div>
                     </div>
                     <div class="data-item-box">

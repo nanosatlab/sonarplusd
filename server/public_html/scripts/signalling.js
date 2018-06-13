@@ -75,7 +75,7 @@ function signal(url, onStream, onError, onClose, onMessage) {
             var what = msg.what;
             var data = msg.data;
 
-            console.log("Received message ==> " + what);
+            console.log("Received message of type: " + what);
 
             switch (what) {
                 case "offer":
@@ -115,7 +115,8 @@ function signal(url, onStream, onError, onClose, onMessage) {
                     break;
 
                 case "message":
-                    if (onMessage) {
+                    if(onMessage) {
+                        console.log(msg.data);
                         onMessage(msg.data);
                     }
                     break;
@@ -127,7 +128,7 @@ function signal(url, onStream, onError, onClose, onMessage) {
                         let candidate = new RTCIceCandidate({sdpMLineIndex: elt.sdpMLineIndex, candidate: elt.candidate});
                         pc.addIceCandidate(candidate,
                                 function () {
-                                    // console.log("IceCandidate added: " + JSON.stringify(candidate));
+                                    console.log("IceCandidate added: " + JSON.stringify(candidate));
                                 },
                                 function (error) {
                                     console.error("addIceCandidate error: " + error);

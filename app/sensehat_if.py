@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: latin-1
 
+import time
 import json
 import os
 from sense_hat import SenseHat
@@ -11,12 +12,17 @@ sense.set_imu_config(True, True, True)
 # Python SenseHat API documentation:
 # https://pythonhosted.org/sense-hat/api
 
+# Roll is: angular x.
+# Pitch is: angular y.
+# Yaw is: angular z.
+
 data_imu = {}
-data_imu["gyro"] = sense.get_orientation_degrees()          # Gets orientation (3-axis) in [deg].
-data_imu["mag"]  = sense.get_compass()                      # Gets orientation to North in [deg].
-data_imu["magr"] = sense.get_compass_raw()                  # Gets magnetic field in [µT].
-data_imu["acc"]  = sense.get_accelerometer()                # Gets acceleration in [deg/s²].
-data_imu["accr"] = sense.get_accelerometer_raw()            # Gets acceleration in [g]'s.
+data_imu["gyro"]  = sense.get_orientation_degrees()          # Gets orientation (3-ang-axis) in [deg].
+data_imu["acc"]   = sense.get_accelerometer()                # Gets orientation from the accelerometer (3-ang-axis) in [deg].
+data_imu["gyror"] = sense.get_gyroscope_raw()                # Gets angular velocity (3-axis) in [rad/s].
+data_imu["mag"]   = sense.get_compass()                      # Gets orientation to North in [deg].
+data_imu["magr"]  = sense.get_compass_raw()                  # Gets magnetic field (3-axis) in [µT].
+data_imu["accr"]  = sense.get_accelerometer_raw()            # Gets acceleration (3-axis) in [g]'s.
 
 data_env = {}
 data_env["temph"] = sense.get_temperature_from_humidity()   # Gets temperature from humidity sensor in [ºC].
