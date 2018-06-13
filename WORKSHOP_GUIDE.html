@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>WORKSHOP_GUIDE</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); background-color: rgb(40, 44, 52); overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); border-image: initial; background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.04); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+.line-number.bracket-matcher.bracket-matcher {
+  color: #abb2bf;
+  background-color: #3a3f4b;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .find-result .region.region.region,
+pre.editor-colors .current-result .region.region.region {
+  border-radius: 2px;
+  background-color: rgba(82, 139, 255, 0.24);
+  transition: border-color 0.4s;
+}
+pre.editor-colors .find-result .region.region.region {
+  border: 2px solid transparent;
+}
+pre.editor-colors .current-result .region.region.region {
+  border: 2px solid #528bff;
+  transition-duration: .1s;
+}
+pre.editor-colors .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #3a3f4b;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #abb2bf;
+}
+.syntax--comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #5c6370;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #98c379;
+}
+.syntax--keyword {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--control {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--operator {
+  color: #abb2bf;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #61afef;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #d19a66;
+}
+.syntax--storage {
+  color: #c678dd;
+}
+.syntax--storage.syntax--type.syntax--annotation,
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #c678dd;
+}
+.syntax--storage.syntax--modifier.syntax--package,
+.syntax--storage.syntax--modifier.syntax--import {
+  color: #abb2bf;
+}
+.syntax--constant {
+  color: #d19a66;
+}
+.syntax--constant.syntax--variable {
+  color: #d19a66;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--numeric {
+  color: #d19a66;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #56b6c2;
+}
+.syntax--variable {
+  color: #e06c75;
+}
+.syntax--variable.syntax--interpolation {
+  color: #be5046;
+}
+.syntax--variable.syntax--parameter {
+  color: #abb2bf;
+}
+.syntax--string {
+  color: #98c379;
+}
+.syntax--string.syntax--regexp {
+  color: #56b6c2;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #e5c07b;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #e06c75;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #5c6370;
+}
+.syntax--punctuation.syntax--definition.syntax--method-parameters,
+.syntax--punctuation.syntax--definition.syntax--function-parameters,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--separator,
+.syntax--punctuation.syntax--definition.syntax--seperator,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #abb2bf;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #61afef;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #be5046;
+}
+.syntax--punctuation.syntax--section.syntax--method,
+.syntax--punctuation.syntax--section.syntax--class,
+.syntax--punctuation.syntax--section.syntax--inner-class {
+  color: #abb2bf;
+}
+.syntax--support.syntax--class {
+  color: #e5c07b;
+}
+.syntax--support.syntax--type {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #e06c75;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #d19a66;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #61afef;
+}
+.syntax--meta.syntax--class {
+  color: #e5c07b;
+}
+.syntax--meta.syntax--class.syntax--body {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--method-call,
+.syntax--meta.syntax--method {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--definition.syntax--variable {
+  color: #e06c75;
+}
+.syntax--meta.syntax--link {
+  color: #d19a66;
+}
+.syntax--meta.syntax--require {
+  color: #61afef;
+}
+.syntax--meta.syntax--selector {
+  color: #c678dd;
+}
+.syntax--meta.syntax--separator {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--tag {
+  color: #abb2bf;
+}
+.syntax--underline {
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #abb2bf;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.syntax--invalid.syntax--illegal {
+  color: white !important;
+  background-color: #e05252 !important;
+}
+.syntax--markup.syntax--bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #c678dd;
+}
+.syntax--markup.syntax--deleted {
+  color: #e06c75;
+}
+.syntax--markup.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #e06c75;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #61afef;
+}
+.syntax--markup.syntax--link {
+  color: #56b6c2;
+}
+.syntax--markup.syntax--inserted {
+  color: #98c379;
+}
+.syntax--markup.syntax--quote {
+  color: #d19a66;
+}
+.syntax--markup.syntax--raw {
+  color: #98c379;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cpp .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cs .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--css .syntax--property-name,
+.syntax--source.syntax--css .syntax--property-value {
+  color: #828997;
+}
+.syntax--source.syntax--css .syntax--property-name.syntax--support,
+.syntax--source.syntax--css .syntax--property-value.syntax--support {
+  color: #abb2bf;
+}
+.syntax--source.syntax--elixir .syntax--source.syntax--embedded.syntax--source {
+  color: #abb2bf;
+}
+.syntax--source.syntax--elixir .syntax--constant.syntax--language,
+.syntax--source.syntax--elixir .syntax--constant.syntax--numeric,
+.syntax--source.syntax--elixir .syntax--constant.syntax--definition {
+  color: #61afef;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--definition,
+.syntax--source.syntax--elixir .syntax--variable.syntax--anonymous {
+  color: #c678dd;
+}
+.syntax--source.syntax--elixir .syntax--parameter.syntax--variable.syntax--function {
+  color: #d19a66;
+  font-style: italic;
+}
+.syntax--source.syntax--elixir .syntax--quoted {
+  color: #98c379;
+}
+.syntax--source.syntax--elixir .syntax--keyword.syntax--special-method,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--section,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--source.syntax--empty {
+  color: #e06c75;
+}
+.syntax--source.syntax--elixir .syntax--readwrite.syntax--module .syntax--punctuation {
+  color: #e06c75;
+}
+.syntax--source.syntax--elixir .syntax--regexp.syntax--section,
+.syntax--source.syntax--elixir .syntax--regexp.syntax--string {
+  color: #be5046;
+}
+.syntax--source.syntax--elixir .syntax--separator,
+.syntax--source.syntax--elixir .syntax--keyword.syntax--operator {
+  color: #d19a66;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--constant {
+  color: #e5c07b;
+}
+.syntax--source.syntax--elixir .syntax--array,
+.syntax--source.syntax--elixir .syntax--scope,
+.syntax--source.syntax--elixir .syntax--section {
+  color: #828997;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--link .syntax--entity {
+  color: #61afef;
+}
+.syntax--source.syntax--go .syntax--storage.syntax--type.syntax--string {
+  color: #c678dd;
+}
+.syntax--source.syntax--ini .syntax--keyword.syntax--other.syntax--definition.syntax--ini {
+  color: #e06c75;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator.syntax--instanceof {
+  color: #c678dd;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair {
+  color: #e06c75;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair > .syntax--punctuation {
+  color: #abb2bf;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator {
+  color: #56b6c2;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--delete,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--in,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--of,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--instanceof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--typeof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
+  color: #c678dd;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation.syntax--string {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+  color: #98c379;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--constant.syntax--language.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--constant.syntax--language.syntax--json {
+  color: #56b6c2;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+  color: inherit;
+}
+.syntax--source.syntax--php .syntax--class.syntax--bracket {
+  color: #abb2bf;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical.syntax--python {
+  color: #c678dd;
+}
+.syntax--source.syntax--python .syntax--variable.syntax--parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><p align="center">
+<img height="50" src="/home/carles/Development/sonarplusd/res/logo_ieec_color.png">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img height="50" src="/home/carles/Development/sonarplusd/res/logo_sonar+d_color.png">
+</p>
+
+
+<h1 id="how-to-build-a-cubesat-part-2-software-test-and-operations">How to build a CubeSat, part 2: software, test and operations</h1>
+<p>This document will guide you through the steps that you need to follow in order to complete the integration of your CubeSat model. In particular, all the software-related aspects, testing and install procedures are detailed below.</p>
+<h2 id="power-up-and-verification">Power up and verification</h2>
+<ol>
+<li>Ensure that all the electronic components are properly connected before supplying power to the system. Carefully check that:<ol>
+<li>The Raspberry Pi must be connected to the Sense Hat board with the correct orientation (reversing the pin order may result in severe damage to both boards). Double-check that the LED matrix is not facing the Raspberry Pi.</li>
+<li>The flat camera cable (brown ribbon) is connected in both ends.</li>
+<li>The microSD card must be inserted in the RPi0W slot <em>before</em> turning it on.</li>
+</ol>
+</li>
+<li>Power the system by connecting a USB charger to the micro USB port labeled with the letters "PWR" in your Raspberry Pi. Ensure that you are not mistakenly connecting it to the other port, labeled "USB". Don't be shy to ask the workshop organizers if you have questions.</li>
+<li>Once power is provided to the board you will see that a small green LED turns on in your Raspberry Pi and that the LED matrix shows a colorful pattern for a while.</li>
+<li>Precautions: do not disconnect any hardware component while power is on. Disconnect power from your board before checking cables and connections. Never remove the microSD card while the Raspberry Pi is on.</li>
+</ol>
+<h2 id="connect-your-computer-to-raspberry-pi-s-wifi">Connect your computer to Raspberry Pi's WiFi</h2>
+<ol>
+<li>Your RPi0W is pre-configured to automatically operate as an WiFi access point. This means that you should be able to connect to its WiFi network with any wireless device (laptop, smartphone, etc.) The name of the WiFi (SSID) is <strong><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">SonarCubeSatN</code></strong> (where the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">N</code> corresponds to your team number.) Password is <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">SonarPlusD2018</code>.</li>
+<li>Be sure to connect your laptop to the correct board (you don't want to accidentally modify other's people work by connecting to the wrong SSID.)</li>
+<li>The IP address of your spacecraft is: <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">192.168.2.120</code>. Remember it, you'll need it in the following steps.</li>
+<li>Now that you are connected to your on-board computer, you can operate your CubeSat model right away. In order to do so, you have two options:<ul>
+<li><strong>SSH terminal:</strong> you will use this option (instructions below) when you need to issue specific commands to the RPi0W. This will provide a text terminal console (i.e. no graphic interface!)</li>
+<li><strong>Web-based operations centre:</strong> If you are not familiar with the Linux terminal, you can still operate your satellite model with a graphical interface that we prepared for you. This will only allow you to manage your camera and read telemetry.</li>
+</ul>
+</li>
+<li><p>Proceed to opening an SSH terminal.</p>
+<ul>
+<li>Linux and Mac users: open a text console and type:<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;ssh&nbsp;pi@192.168.2.120</span></span></div></pre></li>
+<li><p>Windows users will need an SSH client. Any client should work, but we recommend using one named "PuTTY". It can be downloaded and used standalone (i.e. no installation required.) You may find it in the link below:</p>
+<p>  <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html</a>. Download an run "Alternative binary file &gt; putty.exe". The program will show a screen with login options. In the "Sessions" category, type in the Host Name (IP Address): <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">192.168.2.120</code>. Connection type must be SSH and port number 22. Then click the "Open" (or "Connect") button.</p>
+</li>
+</ul>
+</li>
+<li>For the sake of simplicity, we will use the default Raspberry Pi user: <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">pi</code>, with password: <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">raspberry</code> (both case sensitive.)</li>
+<li>You can now issue terminal commands.</li>
+</ol>
+<h2 id="directory-structure">Directory structure</h2>
+<p>A directory named <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">sonarplusd</code> has been installed on the Raspberry pi. It can be found in <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">/home/pi/sonarplusd</code>. This is the root folder for the workshop. Inside you will find the following sub-directories:</p>
+<ul>
+<li><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">app</code>: contains Python scripts that interact with the Sense HAT board. It also has an example of a C++ implementation that interacts with sensors and the camera text-overlay interface.</li>
+<li><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">server</code>: it holds a simple HTTP server implemented in Node.js. The components of this folder will be run to simulate your spacecraft communications subsystem. Gathering housekeeping and other telemetry, and executing telecommands is done by the files in this folder.</li>
+<li><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">utils</code>: we have provided a set of miscellaneous utilities to test your hardware and manage network configuration. Some of the scripts within this folder will be used to verify that everything is properly connected.</li>
+<li><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">res</code>: support files (images and backup copies of configuration files.) Do not modify the contents of this folder.</li>
+</ul>
+<h2 id="verification-test-and-sensor-calibration">Verification, test and sensor calibration</h2>
+<p>Before proceeding further, it is important to double-check that all your electronic devices are working fine. To do so, follow the instructions below.</p>
+<h3 id="check-the-camera">Check the camera</h3>
+<p>For now, all we will ensure is that the camera cable is properly connected. In your terminal window, issue the following command:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>vcgencmd&nbsp;get_camera</span></span></div></pre><p>The result should be a message with this text: <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">supported=1 detected=1</code>. If the output message is different you need to check your camera connection. Remember to always turn off your board before (re-)connecting the cable.</p>
+<h3 id="check-communication-with-the-sense-hat-board">Check communication with the Sense HAT board</h3>
+<p>We can check that the board has been successfully installed by running one of the scripts in the <em>utils</em> folder. To do so, navigate to the folder:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>cd&nbsp;/home/pi/sonarplusd/utils/</span></span></div></pre><p>And execute the file named <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">test_sense_hat.py</code>:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>./test_sense_hat.py</span></span></div></pre><p>Your LED matrix display should display the message "Hello World!".</p>
+<h3 id="test-and-calibrate-your-imu">Test and calibrate your IMU</h3>
+<p>The Inertial Measurement Unit is composed of a set of sensors: magnetometer, accelerometer and gyroscope. Together they allow us to determine the orientation of our spacecraft (or its "attitude", in space jargon.) The data of these sensors is fused automatically, but we can still read the independent output of each sensor. Three test scripts will allow us to determine whether the IMU is working as expected. You can run each of them independently with:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>./test_imu_acceleration.py&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Will&nbsp;show&nbsp;acceleration&nbsp;in&nbsp;the&nbsp;three&nbsp;axis&nbsp;(x,&nbsp;y,&nbsp;z),&nbsp;in&nbsp;"g".</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>./test_imu_magnetometer.py&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Will&nbsp;show&nbsp;magnetic&nbsp;field&nbsp;in&nbsp;each&nbsp;axis&nbsp;(x,&nbsp;y,&nbsp;z),&nbsp;in&nbsp;micro-Teslas.</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>./test_imu_orientation.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Will&nbsp;show&nbsp;the&nbsp;orientation&nbsp;(i.e.&nbsp;rotation)&nbsp;for&nbsp;the&nbsp;axis&nbsp;roll,&nbsp;pitch&nbsp;and&nbsp;yaw.</span></span></div></pre><p>In order to stop these scripts, simply press <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Ctrl + C</code> (or <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Cmd + Dot</code> for Mac users.)
+Gently move your board to verify that readings are changing as you move the boards.</p>
+<p>Now, if you pay close attention to the actual value output of the IMU, you'll probably notice that the values drift, or are slightly inaccurate. This is owed to the fact that your IMU's are not calibrated. You should now proceed to calibration of your boards, through a complex utility named <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">RTIMULibCal</code>. The instructions to do so, are partially taken from the <a href="https://www.raspberrypi.org/documentation/hardware/sense-hat/">official Sense HAT page </a>.</p>
+<p>In your SSH terminal and while in the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">utils</code> directory, navigate to the RTEllipsoidFit folder and launch the calibration menu (text based):</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>cd&nbsp;RTEllipsoidFit/</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>RTIMULibCal</span></span></div></pre><p>This will show a menu describing options "m", "e" and "a". Proceed to each of the calibration procedures one by one, and in the suggested order. Press lowercase <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">m</code> to start the magnetometer calibration with min./max. values. Read on-screen instructions and press any key to start.</p>
+<p>After it starts, you will see something similar to this scrolling up the screen:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>Min&nbsp;x:&nbsp;&nbsp;51.60&nbsp;&nbsp;min&nbsp;y:&nbsp;&nbsp;69.39&nbsp;&nbsp;min&nbsp;z:&nbsp;&nbsp;65.91</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>Max&nbsp;x:&nbsp;&nbsp;53.15&nbsp;&nbsp;max&nbsp;y:&nbsp;&nbsp;70.97&nbsp;&nbsp;max&nbsp;z:&nbsp;&nbsp;67.97</span></span></div></pre><p>Focus on the two lines at the very bottom of the screen, as these are the most recently posted measurements from the program. Now you have to move the IMU around in every possible way you can think of. Ensure that the camera is not suspended from its cable and is tightly screwed to its supporting base.</p>
+<p>Try and get a complete circle in each of the pitch, roll and yaw axes. Take care not to accidentally eject the SD card while doing this. Spend a few minutes moving the board, and stop when you find that the numbers are not changing anymore. Exit pressing lowercase <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">s</code>.</p>
+<p>Only after this has been completed, you can proceed to calibrating the magnetometer with an ellipsoid fitting process (option <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">e</code>.) Instructions will appear on-screen. When completed, press <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">s</code> again and proceed to the accelerometer calibration (option <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">a</code>.)</p>
+<p>When these procedures have been completed, press <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">x</code> to exit the calibration program. If you run the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">ls</code> command now, you'll see that a new <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">RTIMULib.ini</code> file has been created. Copy this file to the IMU folder to complete the calibration:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>sudo&nbsp;cp&nbsp;RTIMULib.ini&nbsp;/etc&nbsp;-v</span></span></div></pre><p>You have your sensors calibrated. You can repeat the tests from the beginning to verify the accuracy improvement.</p>
+<h2 id="cubesat-control-room">CubeSat control room</h2>
+<p>Up to now, you have been running commands directly from the Raspberry Pi terminal. You had access to all its features and programs. However, satellite operators need to rely on a telemetry and telecommand system to operate their spacecraft and control its mission. Your CubeSat's pre-programmed web-based interface will simulate your control room and will allow you to operate the spacecraft with a minimal set of commands and available actions. You may now open your favorite web browser and enter the following URL:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span class="syntax--markup syntax--underline syntax--link syntax--http syntax--hyperlink"><span>http://192.168.2.120</span></span></span></div></pre><p>The CubeSat Control Room should render in your screen. The buttons on the first row will allow you to connect to your main payload (i.e. camera) and stream its image in real-time. They will also allow you to control the LED matrix display, with a few predefined options. Please note that some of the options and button actions have been left unimplemented so that you can complete their code (optionally).</p>
+<p>Verify that you can connect to the camera (click "Connect to payload") and see the real-time video stream on your screen. Point your camera to a distant feature and correct its focus until the image is sharp and clear. You can do so by gently rotating the outer ring of its lens.</p>
+<p>On top of the camera stream, you should also see the message "Establishing telemetry link..." This notifies you that link to your spacecraft has only been established partially (i.e. only the camera data can be downlinked.) Commands and housekeeping data request can't still be sent to the CubeSat. In order to enable this, we need to start an on-board service. This service will collect data from IMU and on-board sensors and deliver it to your ground station (i.e. laptop) upon request. The command that you will need to issue is as follows:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>sudo&nbsp;systemctl&nbsp;start&nbsp;telemetry.service</span></span></div></pre><p>Analogously, the service can be stopped at anytime with:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>sudo&nbsp;systemctl&nbsp;stop&nbsp;telemetry.service</span></span></div></pre><p>Please note that this command will need to be issued every time our spacecraft is turned off and on again. This protects our satellite from being operated during its test campaing.</p>
+<p>Once the telemetry service has been started, you should see the collected sensor data on top of your camera image. The data is automatically updated every 5 seconds. If you would encounter a problem (or the connection would not be established after starting the service), simply refresh your browser (hit <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">F5</code> on Windows/Linux or <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">CMD + R</code> on Mac.) This control room has been optimized for recent versions of Chrome, Firefox or Safari. Incompatibility or version issues may still affect your performance. If that's the case, change to a different browser. Also note that, although this control room can be accessed from multiple devices simultaneously (even with your smartphones), the camera stream can only be shown in one device at a time. All you need to do is connect your mobile devices or laptops to the same WiFi network provided by the RPi0W.</p>
+<p>You now have your spacecraft fully operative. You may proceed to the final integration inside the structure (if you haven't already done so) or try to complete some of the proposed challenges!</p>
+<h2 id="challenges">Challenges</h2>
+<p>Depending on your ability with a Linux terminal and your experience as a programmer, you may be tempted to fulfill some or all of the proposed challenges. These are all optional and should be easy to complete. Nonetheless, they require some level of expertise in programming. The languages used in the implementation of the on-board software and web-based interface are javascript (for Node.js), HTML5/CSS and Python. The implementation leverages on the <a href="https://pythonhosted.org/sense-hat/api/">Python's Sense HAT library</a>, Node.js packages (<a href="https://socket.io/">socket.io</a> and <a href="https://nodejs.org/api/child_process.html">child_process</a>) and a plug-and-play camera driver named <a href="https://www.linux-projects.org/uv4l/">UV4L</a> which provide seamless streaming features, among many other options.</p>
+<p>In order to complete these challenges, we recommend that you browse some of the on-line documentation for these projects. Moreover, it is important to understand what the elements of this software architecture are:</p>
+<ul>
+<li><p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">sonarplusd/app/sensehat_if.py</code> is a simple program implemented in Python which read the data from each and every on-board sensor and outputs their value in a JSON-formated object. Running it from a terminal will result in an output similar to this:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"env":&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"hum":&nbsp;57.70661163330078,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pres":&nbsp;1014.0029296875,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tempcpu":&nbsp;38.5,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"temph":&nbsp;29.12874984741211,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"tempp":&nbsp;27.879165649414062</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"imu":&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"acc":&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pitch":&nbsp;359.10057742476084,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"roll":&nbsp;271.4744440920308,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"yaw":&nbsp;265.92150029681045</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"accr":&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"x":&nbsp;0.06080819293856621,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"y":&nbsp;-3.3398475646972656,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"z":&nbsp;0.08551201969385147</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"gyro":&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"pitch":&nbsp;359.10080100673446,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"roll":&nbsp;271.4677300160767,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"yaw":&nbsp;265.9214934666213</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"gyror":&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"x":&nbsp;-0.012605372816324234,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"y":&nbsp;0.008001886308193207,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"z":&nbsp;-0.013405967503786087</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"mag":&nbsp;265.91956052308615,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"magr":&nbsp;{</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"x":&nbsp;-1.2147454023361206,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"y":&nbsp;-22.25544548034668,</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"z":&nbsp;21.794546127319336</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;}</span></span></div></pre></li>
+<li><p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">sonarplusd/app/sensehat_led_control.py</code> is a Python program that allows control of the LED matrix display. This are the available options:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;./sensehat_led_control.py&nbsp;&lt;action&gt;&nbsp;[&lt;options&gt;].&nbsp;List&nbsp;of&nbsp;available&nbsp;actions:</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-s&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sonar&nbsp;Calling&nbsp;effect.</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Load&nbsp;and&nbsp;display&nbsp;image&nbsp;file&nbsp;named&nbsp;'image.png'&nbsp;(must&nbsp;be&nbsp;8x8&nbsp;pixels,&nbsp;PNG).</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-p&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Display&nbsp;an&nbsp;8x8&nbsp;color&nbsp;pattern&nbsp;hardcoded&nbsp;in&nbsp;the&nbsp;source&nbsp;code.</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-c&nbsp;&lt;color_hex&gt;&nbsp;&nbsp;&nbsp;Show&nbsp;solid&nbsp;color.</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-t&nbsp;&lt;text&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Display&nbsp;text&nbsp;in&nbsp;a&nbsp;loop.</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-o&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Turn&nbsp;off.</span></span></div><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-d&nbsp;&lt;start&nbsp;val.&gt;&nbsp;&nbsp;Countdown&nbsp;option&nbsp;(unimplemented.)</span></span></div></pre></li>
+<li><p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">sonarplusd/server/server.js</code> is a Node.js server that connects to your computer through a <em>WebSocket</em> and replies to data and command requests. This javascript source code implements the commands accessible in your web-based GUI. It essentially listens for incoming requests and launches the above Python programs to execute the command.</p>
+</li>
+<li><p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">sonarplusd/server/public_html</code> is a directory containing the HTML/CSS source code of the control room. Requests to this page are always served, even when the telemetry server is stopped.</p>
+</li>
+<li><p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">sonarplusd/server/public_html/client.js</code> is the main javascript code that runs on your browser when you are using the control room. It listens to button events and sends requests to the telemetry and camera server. Some unimplemented functions can be addressed by adding new code here.</p>
+</li>
+<li><p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">sonarplusd/server/public_html/signaling.js</code>. The control of the on-board camera is based on UV4L's WebRTC service. This script essentially handles the communication between your browser and the WebRTC service. You shouldn't require to modify this file.</p>
+</li>
+</ul>
+<h3 id="editing-code">Editing code</h3>
+<p>Code can either be downloaded from GitHub (<a href="https://github.com/nanosatlab/sonarplusd">https://github.com/nanosatlab/sonarplusd</a>) and modified in your laptops or edited directly from your RPi0W. The latter can be achieved with simple programs like <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">nano</code>. For example, editing a Python scritp could be done with the following command:</p>
+<pre class="editor-colors lang-"><div class="line"><span class="syntax--text syntax--plain syntax--null-grammar"><span>&nbsp;&nbsp;&nbsp;&nbsp;nano&nbsp;path/to/the/file.py</span></span></div></pre><p><code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Ctrl + O</code> will save the changes and <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">Ctrl + X</code> will close <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">nano</code> and return to your terminal prompt.</p>
+<h3 id="list-of-proposed-challenges">List of proposed challenges</h3>
+<ol>
+<li>Implement the "Download capture" button. The provided implementation stops the camera streaming process (WebRTC) and allows, thus, to take pictures with the camera. The utility <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">raspistill</code> (<a href="https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md">documented here</a>) should allow you to set-up the camera to take an image at full resolution. Your task is to let the user do the capture and download the result, just by clicking that button.</li>
+<li>The camera video stream can also be captured with a media player. VLC is a very good option, which allows network playbacks among many other features. You can open this stream with VLC: <a href="http://192.168.2.120:8080/stream/video.mjpeg">http://192.168.2.120:8080/stream/video.mjpeg</a>. The challenge will be to record the video (either with VLC or your preferred media player program.)</li>
+<li>Implement a countdown in your LED matrix display. If you finish this challenge, you'll be able to use it during the launch campaing. Hint: the <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">sensehat_led_control.py</code> has a pre-implemented function that could be completed to do the countdown. You can easily edit the code with <code style="font-family: Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;">nano /home/pi/sonarplusd/app/sensehat_led_control.py</code>.</li>
+<li>UV4L allows text to be overlayed on the camera video stream. Find how to do so (<a href="https://www.linux-projects.org/uv4l/tutorials/text-overlay/">hint</a>) and print your team name on the camera images.</li>
+<li>The sky is the limit: propose and implement your own modification or custom feature ;)</li>
+</ol>
+<hr>
+<p><em>Institut d'Estudis Espacials de Catalunya (IEEC), 2018 / <a href="http://www.ieec.cat/">www.ieec.cat</a>.</em></p></body>
+</html>
